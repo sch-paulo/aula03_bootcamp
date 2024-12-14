@@ -22,7 +22,7 @@ temperaturas = [10, 20, 30, 40, 50, 25, 28, 23]
 for temp in temperaturas:
     if temp < 18:
         print(f'{temp}°C: baixa')
-    elif temp >= 18 and temp <= 26:
+    elif temp >= 18 and temp <= 26: # elif 18 <= temperatura <= 26:
         print(f'{temp}°C: normal')
     else:
         print(f'{temp}°C: alta')
@@ -45,7 +45,7 @@ print()
 # e imprima "Dados de usuário válidos" ou o erro específico encontrado.
 import re
 dados_usuario = {'nome': 'Ronaldo', 'idade': 18, 'e-mail': 'rona$ldo@fenomeno.com'}
-if re.search("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", dados_usuario['e-mail']) and \
+if re.search(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", dados_usuario['e-mail']) and \
     (dados_usuario['idade'] >= 18) and (dados_usuario['idade'] <= 65):
     print('Dados de usuário válidos.')
 else:
@@ -102,10 +102,7 @@ print()
 ### Exercício 9. Extração de Subconjuntos de Dados
 # Objetivo:** Dada uma lista de números, extrair apenas aqueles que são pares.
 lista_num = [1, 2, 3, 4, 5, 6, 7, 8]
-lista_pares = []
-for num in lista_num:
-    if num % 2 == 0:
-        lista_pares.append(num)
+lista_pares = [num for num in lista_num if num % 2 == 0]
 print(lista_pares)
 print()
 
@@ -172,6 +169,8 @@ while tentativa <= limite_tentativas:
     else:
         print(f'Tentativa {tentativa} de reconexão...')
     tentativa += 1
+else:
+    print('Falha ao reconectar')
 print()
 
 ### Exercício 15. Processamento de Dados com Condição de Parada
@@ -181,5 +180,6 @@ elem = 0
 while lista_dados[elem] != 'f':
     print(f'Elemento {lista_dados[elem]}, ok')
     elem += 1
-print(f'Elemento {lista_dados[elem]} encontrado, parou!')
+else:
+    print(f'Elemento {lista_dados[elem]} encontrado, parou!')
 print()
